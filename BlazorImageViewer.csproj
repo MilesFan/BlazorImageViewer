@@ -1,12 +1,21 @@
-<Project Sdk="Microsoft.NET.Sdk.Razor">
+﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
 
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
+	<Title>Blazor Image Viewer</Title>
+	<Authors>Fan Xing Hua - Miles</Authors>
+	<Description>A simple Blazor component for viewing images with zoom and pan functionality.</Description>
+	<Version>1.0.1</Version>
+	<PackageLicenseExpression>MIT</PackageLicenseExpression>
+	<PackageReadmeFile>README.md</PackageReadmeFile>
+	<PackageProjectUrl>https://github.com/MilesFan/BlazorImageViewer</PackageProjectUrl>
+	<RepositoryUrl>https://github.com/MilesFan/BlazorImageViewer</RepositoryUrl>
   </PropertyGroup>
 
   <ItemGroup>
+	<None Include="README.md" Pack="true" PackagePath="\"/>
     <Compile Remove="Demo\**" />
     <Content Remove="Demo\**" />
     <EmbeddedResource Remove="Demo\**" />
@@ -19,7 +28,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="8.0.22" />
+    <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="8.0" />
   </ItemGroup>
 
 </Project>

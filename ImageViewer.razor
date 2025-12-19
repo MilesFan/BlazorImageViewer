@@ -2,7 +2,7 @@
 @using Microsoft.JSInterop
 @inject IJSRuntime js
 @implements IAsyncDisposable
-<div @ref="element" class="@Class" style="@(Style); background-repeat:no-repeat; cursor:move; user-select:none; background-position-x:calc(50%); background-position-y:calc(50%); background-image:url('@ImageUrl')"></div>
+<div @ref="element" class="@Class" style="@(Style); background-size:100%; background-repeat:no-repeat; cursor:move; user-select:none; background-position-x:calc(50%); background-position-y:calc(50%); background-image:url('@ImageUrl')"></div>
 @code
 {
     [Parameter]
