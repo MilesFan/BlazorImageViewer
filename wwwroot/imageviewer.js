@@ -31,7 +31,7 @@ export async function initializeImageViewer(element) {
         });
     });
     element.addEventListener('mousewheel', function (event) {
-        event.stopPropagation();
+        event.preventDefault();
         if (event.deltaY > 0 && info.scale < 20) return;
         if (event.deltaY < 0 && info.scale > 1000) return;
         info.scale -= event.deltaY / 10;
