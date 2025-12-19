@@ -1,0 +1,49 @@
+﻿@using Microsoft.AspNetCore.Components.Web
+@using Microsoft.JSInterop
+@inject IJSRuntime js
+@implements IAsyncDisposable
+<div @ref="element" class="@Class" style="@(Style); background-repeat:no-repeat; cursor:move; user-select:none; background-position-x:calc(50%); background-position-y:calc(50%); background-image:url('@ImageUrl')"></div>
+@code
+{
+    [Parameter]
+    public string? ImageUrl { get; set; }
+
+    [Parameter]
+    public string? Style { get; set; }
+
+    [Parameter]
+    public string? Class { get; set; }
+
+    private ElementReference element = default!;
+
+    private IJSObjectReference? module;
+
+    public async ValueTask DisposeAsync()
+    {
+        if (module is not null)
+        {
+            try
+            {
+                await module.DisposeAsync();
+            }
+            catch (Exception) { }
+        }
+    }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            try
+            {
+                module = await js.InvokeAsync<IJSObjectReference>("import", "./_content/BlazorImageViewer/imageviewer.js");
+                if (module is null) throw new Exception("Failed to load JS module.");
+                await module.InvokeVoidAsync("initializeImageViewer", element);
+            }
+            catch (Exception ex)
+            {
+                await js.InvokeVoidAsync("alert", $"Error loading JS module: {ex.Message}");
+            }
+        }
+    }
+}

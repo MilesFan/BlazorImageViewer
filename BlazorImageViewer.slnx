@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="BlazorImageViewer.csproj" />
+  <Project Path="Demo/Demo.csproj" />
+</Solution>
