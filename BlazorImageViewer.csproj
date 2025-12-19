@@ -7,7 +7,7 @@
 	<Title>Blazor Image Viewer</Title>
 	<Authors>Fan Xing Hua - Miles</Authors>
 	<Description>A simple Blazor component for viewing images with zoom and pan functionality.</Description>
-	<Version>1.0.1</Version>
+	<Version>1.0.2</Version>
 	<PackageLicenseExpression>MIT</PackageLicenseExpression>
 	<PackageReadmeFile>README.md</PackageReadmeFile>
 	<PackageProjectUrl>https://github.com/MilesFan/BlazorImageViewer</PackageProjectUrl>
